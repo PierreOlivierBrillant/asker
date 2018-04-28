@@ -3,6 +3,10 @@
   <button *ngIf="questions.length === 0" mat-raised-button color="primary" (click)="clickChangeFile()">
     <mat-icon>insert_drive_file</mat-icon>
   </button>
+  <div *ngIf="questions.length === 0"  class="or">or</div>
+  <button *ngIf="questions.length === 0" mat-raised-button color="primary" (click)="loadDefault()">
+    default
+  </button>
   <mat-card *ngIf="questions.length > 0">
     <mat-card-title>{{questions[currentQuestionIndex].question}}</mat-card-title>
     <mat-card-content *ngIf="showingAnswer">{{questions[currentQuestionIndex].answer}}</mat-card-content>

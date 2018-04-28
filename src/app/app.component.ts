@@ -38,14 +38,18 @@ export class AppComponent {
     reader.readAsText(file);
 
     reader.onload = () => {
-      const lines = reader.result.toString().split('\n');
-      for (const line of lines) {
-        if (line !== '') {
-          const lineItems = line.split('|');
-          this.questions.push(new Question(lineItems[0], lineItems[1]));
-        }
-      }
+      this.readLines(reader.result.toString());
     };
+  }
+
+  readLines(content: string) {
+    const lines = content.split('\n');
+    for (const line of lines) {
+      if (line !== '') {
+        const lineItems = line.split('|');
+        this.questions.push(new Question(lineItems[0], lineItems[1]));
+      }
+    }
   }
 
   clickChangeFile() {
@@ -72,5 +76,9 @@ export class AppComponent {
     } else {
       this.currentQuestionIndex++;
     }
+  }
+
+  loadDefault() {
+    this.readLines(Question.DEFAULT);
   }
 }
