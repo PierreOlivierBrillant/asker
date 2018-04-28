@@ -67,7 +67,7 @@ export class AppComponent {
 
   nextQuestion() {
     this.showingAnswer = false;
-    if (this.currentQuestionIndex > this.questions.length - 1) {
+    if (this.currentQuestionIndex > this.questions.length - 2) {
       this.currentQuestionIndex = 0;
     } else {
       this.currentQuestionIndex++;
