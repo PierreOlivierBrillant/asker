@@ -1,4 +1,5 @@
 import {Component, ElementRef, HostListener, ViewChild} from '@angular/core';
+import {CS_QUESTIONS} from '../assets/cs-questions/cs-questions';
 import {Question} from './question';
 
 @Component({
@@ -79,6 +80,6 @@ export class AppComponent {
   }
 
   loadDefault() {
-    this.readLines(Question.DEFAULT);
+    this.questions = CS_QUESTIONS;
   }
 }
